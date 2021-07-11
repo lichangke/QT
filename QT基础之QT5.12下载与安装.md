@@ -15,7 +15,7 @@ QT5.12下载
 链接：[https://pan.baidu.com/s/1bLQokHK6vmBNzre8Au9mGw](https://pan.baidu.com/s/1bLQokHK6vmBNzre8Au9mGw)
 提取码：0bdc 
 
-![image-20210711211107739](Pictures\QT基础之QT5.12下载与安装\A_QT基础之QT5.12下载与安装.png)
+![image-20210711211107739](Pictures/QT基础之QT5.12下载与安装/A_QT基础之QT5.12下载与安装.png)
 
 
 
@@ -23,13 +23,13 @@ QT5.12下载
 
 双击<font color='red'> `qt-opensource-windows-x86-5.12.10.exe`</font> 进入安装向导，下一步输入帐号和密码（如果没有可以在官网申请 官网 [https://www.qt.io/](https://www.qt.io/)）
 
-![image-20210711212856472](Pictures\QT基础之QT5.12下载与安装\B_QT基础之QT5.12下载与安装.png)
+![image-20210711212856472](Pictures/QT基础之QT5.12下载与安装/B_QT基础之QT5.12下载与安装.png)
 
 
 
 下一步，设置安装路径
 
-![image-20210711213757696](Pictures\QT基础之QT5.12下载与安装\C_QT基础之QT5.12下载与安装.png)
+![image-20210711213757696](Pictures/QT基础之QT5.12下载与安装/C_QT基础之QT5.12下载与安装.png)
 
 
 
@@ -46,13 +46,13 @@ QT5.12下载
 - Qt Purchasing、Qt Virtual Keyboard、Qt WebEngine、Qt Network Auth(TP)等其他模块，括号里的 TP 表示技术预览（Technology Preview）（Purchasing难道是二维码扫码支付？有趣有趣）
 - Qt Scritp（Deprecated）是脚本模块，括号里的“Deprecated”表示这是已经过时的模块。
 
-![image-20210711214244518](Pictures\QT基础之QT5.12下载与安装\D_QT基础之QT5.12下载与安装.png)
+![image-20210711214244518](Pictures/QT基础之QT5.12下载与安装/D_QT基础之QT5.12下载与安装.png)
 
 
 
 Devoloper and Designer Tools里面，Qt Creator 一定要选。如果前面有选MinGW而主机里没有安装过MinGW的话，应该勾选MinGw这一项。
 
-![image-20210711214613135](Pictures\QT基础之QT5.12下载与安装\E_QT基础之QT5.12下载与安装.png)
+![image-20210711214613135](Pictures/QT基础之QT5.12下载与安装/E_QT基础之QT5.12下载与安装.png)
 
 
 
