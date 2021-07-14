@@ -19,6 +19,7 @@ QT基础与实例应用，基于书籍 QT5开发及实例 第4版
 | [QT基础之容器类](https://github.com/lichangke/QT/blob/main/QT%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%AE%B9%E5%99%A8%E7%B1%BB.md)|
 | [QT基础之QVariant类](https://github.com/lichangke/QT/blob/main/QT%E5%9F%BA%E7%A1%80%E4%B9%8BQVariant%E7%B1%BB.md)|
 |[QT基础之常用控件简单介绍](https://github.com/lichangke/QT/blob/main/QT%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%B8%B8%E7%94%A8%E6%8E%A7%E4%BB%B6%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D.md)|
+|[QT基础之隐式共享](https://github.com/lichangke/QT/blob/main/QT%E5%9F%BA%E7%A1%80%E4%B9%8B%E9%9A%90%E5%BC%8F%E5%85%B1%E4%BA%AB.md)|
 
 
 希望我的文章对于大家有帮助，由于个人能力的局限性，文中可能存在一些问题，欢迎指正、补充！
