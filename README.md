@@ -17,6 +17,7 @@ QT基础与实例应用，基于书籍 QT5开发及实例 第4版
 | [QT基础之信号与槽机制](https://github.com/lichangke/QT/blob/main/QT%E5%9F%BA%E7%A1%80%E4%B9%8B%E4%BF%A1%E5%8F%B7%E4%B8%8E%E6%A7%BD%E6%9C%BA%E5%88%B6.md)|
 | [QT基础之字符串类](https://github.com/lichangke/QT/blob/main/QT%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B1%BB.md)|
 | [QT基础之容器类](https://github.com/lichangke/QT/blob/main/QT%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%AE%B9%E5%99%A8%E7%B1%BB.md)|
+| [QT基础之QVariant类](https://github.com/lichangke/QT/blob/main/QT%E5%9F%BA%E7%A1%80%E4%B9%8BQVariant%E7%B1%BB.md)|
 
 
 
