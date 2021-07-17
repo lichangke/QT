@@ -5,116 +5,166 @@
 
 
 
-## QSplitter类简介
+## QDockWidget类简介
 
-`QSplitter` 类实现了一个拆分部件。一个拆分器`splitter`允许用户通过拖动它们之间的边界来控制子部件的大小。任何数量的部件都可以由单个拆分器`splitter`控制。`QSplitter` 的典型用途是创建多个部件并使用 `insertWidget() `或` addWidget() `添加它们。
+`QDockWidget` 类提供了一个部件，它可以停靠在 `QMainWindow` 内或作为桌面上的顶级窗口浮动。
 
-以下示例将并排显示 `QListView`、`QTreeView` 和 `QTextEdit`，并带有两个分隔：
+`QDockWidget` 提供了停靠窗口部件的概念，也称为工具面板或实用程序窗口。 停靠窗口是位于 `QMainWindow` 中央部件周围的停靠部件区域中的辅助窗口。
 
-```cpp
-    QSplitter *splitter = new QSplitter();
-    QListView *listview = new QListView();
-    QTreeView *treeview = new QTreeView();
-    QTextEdit *textedit = new QTextEdit();
-    splitter->addWidget(listview);
-    splitter->addWidget(treeview);
-    splitter->addWidget(textedit);
-    splitter->setWindowTitle("Splitter Test");
-    splitter->show();
-```
+![A_QT基础之停靠窗口QDockWidget类](Pictures\QT基础之停靠窗口QDockWidget类\A_QT基础之停靠窗口QDockWidget类.PNG)
 
-![A_QT基础之分割窗口类QSplitter类](Pictures/QT基础之分割窗口类QSplitter类/A_QT基础之分割窗口类QSplitter类.gif)
+停靠窗口可以在其当前区域内移动，移动到新区域或者浮动（例如，取消停靠）。 `QDockWidget`的 API 允许程序员限制停靠部件的移动、浮动和关闭，以及它们可以放置的区域的能力。
 
 
 
-如果在调用 `insertWidget()` 或` addWidget() `时部件已经在 `QSplitter` 中，它将移动到新位置。 这可用于稍后在拆分器中重新排序部件。 可以使用 `indexOf()`、`widget()` 和` count() `来访问拆分器内的小部件。
+`QDockWidget` 由标题栏和内容区域组成。标题栏显示停靠窗口部件的窗口标题、浮动按钮和关闭按钮。根据 `QDockWidget `的状态，浮动和关闭按钮可能被禁用或根本不显示。标题栏和按钮的视觉外观取决于使用的样式。`QDockWidget`可以作为它子窗口部件的封装，通过`setWidget()`设置子窗口部件。自定义的尺寸提示，最小和最大化尺寸已经尺寸策略都必须由子窗口部件来实现。`QDockWidget`会遵守它们，调整它自己的限制包括框架和工具栏。我们不应该为`QDockWidget`设置尺寸限制，因为它们根据`QDockWidget`是否锁住而改变，一个锁住的`QDockWidget`窗口部件不包括框架和小的工具栏。
+
+**`QDockWidget`对象包含一些特性，例如：移动、悬浮、关闭等等，这些都是枚举类型：**
+
+![image-20210718000152700](Pictures/QT基础之停靠窗口QDockWidget类/B_QT基础之停靠窗口QDockWidget类.PNG)
 
 
 
-默认的 `QSplitter`是 水平（并排）布置其子项如上例； 可以使用 `setOrientation(Qt::Vertical) `将其子项垂直放置。默认情况下，所有部件都可以根据用户的意愿在部件` minimumSizeHint()`（或` minimumSize()`）和 `maximumSize()` 之间或大或小。默认情况下，`QSplitter` 会动态调整其子项的大小。
+**`QDockWidget`可以放置的位置，也是枚举类型：**
 
-部件之间大小的初始分布是通过将初始大小乘以**拉伸因子**来确定的。 您还可以使用`setSizes() `来设置所有部件的大小。 函数 `size() `返回用户设置的大小。 或者，您可以分别使用` saveState() `和` restoreState()` 从 `QByteArray` 保存和恢复部件的大小。
-
-当`hide() `一个子部件时，它的空间将分配给其他子部件。 当您再次 `show() `它时，它将被恢复。
+![image-20210718000430436](Pictures/QT基础之停靠窗口QDockWidget类/C_QT基础之停靠窗口QDockWidget类.PNG)
 
 
 
 ## 简单Demo和说明
 
-![B_QT基础之分割窗口类QSplitter类](Pictures/QT基础之分割窗口类QSplitter类/B_QT基础之分割窗口类QSplitter类.gif)
 
-Github链接：[Splitter](https://github.com/lichangke/QT/tree/main/CodeDemo/CH3/CH301/Splitter)
+
+设置停靠窗口的一般流程如下：
+
+1. 创建一个`QDockWidget`对象的停靠窗体
+2. 设置此停靠窗体的属性，通常调用 `setFeatures()`以及 `setAllowedAreas()`
+3. 新建一个要插入停靠窗体的控件，比如 `QListWidget`、`QTextEdit`
+4. 将控件插入停靠窗体，调用`QDockWidget`的`setWidget()`方法
+5. 使用 `addDockWidget()`方法在`MainWindow`中加入此停靠窗体
+
+
+
+![D_QT基础之停靠窗口QDockWidget类](Pictures/QT基础之停靠窗口QDockWidget类/D_QT基础之停靠窗口QDockWidget类.gif)
+
+
+
+GitHub链接 ： [DockWindows](https://github.com/lichangke/QT/tree/main/CodeDemo/CH3/CH302/DockWindows)
 
 ```cpp
-#include "mainwindow.h"
-#include <QApplication>
-#include <QSplitter>
-#include <QTextEdit>
+    setWindowTitle(tr("QT基础之停靠窗口QDockWidget类"));
+    QTextEdit *textEdit = new QTextEdit(this);
+    textEdit->setText(tr("主窗口"));
+    textEdit->setAlignment(Qt::AlignCenter);
+    this->setCentralWidget(textEdit); // 设置 textEdit 为主窗口的中央窗体
 
-int main(int argc, char *argv[])
-{
-    QApplication a(argc, argv);
-    QFont font("微软雅黑",15);
-    a.setFont(font); // 设置字体
-
-    // 主分割窗口
-    // 新建一个 QSplitter 对象 作为主分割窗口，水平分割窗口
-    QSplitter *splitterMain = new QSplitter(Qt::Horizontal,nullptr); // 水平布置
-
-    // 新建 一个 QTextEdit 对象  并将其加入 主分割窗口中
-    QTextEdit *textLeft = new QTextEdit(QObject::tr("Left Widget"),splitterMain);
-//    QTextEdit *textLeft = new QTextEdit(QObject::tr("Left Widget"));
-//    splitterMain->addWidget(textLeft);
-    textLeft->setAlignment(Qt::AlignCenter); // 设置 QTextEdit 对齐方式   AlignCenter 居中对齐
-
-    // 右分割窗口
-    QSplitter *splitterRight = new QSplitter(Qt::Vertical,splitterMain); // 垂直布置 其父窗口为 splitterMain
-//    QSplitter *splitterRight = new QSplitter(Qt::Vertical);
-//    splitterRight->setParent(splitterMain);
-
-    // 调用 setOpaqueResize 用于设定分割窗口的分割条在拖拽是是否实时更新显示。
-    // true 实时显示，false则拖拽时只显示一条灰色的粗线，拖拽到位并释放鼠标后显示分割条。默认 为true
-    splitterRight->setOpaqueResize(false);
+    // 停靠窗口1
+    // 步骤1 创建一个`QDockWidget`对象的停靠窗体
+    QDockWidget *dock1 = new QDockWidget(tr("停靠窗口1"),this);
+    // 步骤2 设置此停靠窗体的属性，通常调用 `setFeatures()`以及 `setAllowedAreas()`
+    dock1->setFeatures(QDockWidget::DockWidgetMovable); // 可移动
+    dock1->setAllowedAreas(Qt::LeftDockWidgetArea|Qt::RightDockWidgetArea); // 可 左侧停靠 和 右侧停靠
+    // 步骤3 新建一个要插入停靠窗体的控件，比如 `QListWidget`、`QTextEdit`
+    QTextEdit *textEdit1 = new QTextEdit(this);
+    textEdit1->setText(tr("停靠窗口1,可移动到左侧停靠和右侧停靠"));
+    // 步骤4 将控件插入停靠窗体，调用`QDockWidget`的`setWidget()`方法
+    dock1->setWidget(textEdit1);
+    // 步骤5 使用 `addDockWidget()`方法在`MainWindow`中加入此停靠窗体
+    this->addDockWidget(Qt::RightDockWidgetArea,dock1);
 
 
-    QTextEdit *textTop= new QTextEdit(QObject::tr("Top Widget"),splitterRight);
-    textTop->setAlignment(Qt::AlignCenter);
-    QTextEdit *textBottom= new QTextEdit(QObject::tr("Bottom Widget"),splitterRight);
-    textBottom->setAlignment(Qt::AlignCenter);
+    // 停靠窗口2
+    // 步骤1
+    QDockWidget *dock2 = new QDockWidget(tr("停靠窗口2"),this);
+    // 步骤2
+    dock2->setFeatures(QDockWidget::DockWidgetClosable|QDockWidget::DockWidgetFloatable); // 可关闭 可浮动
+    // 步骤3
+    QTextEdit *textEdit2 = new QTextEdit(this);
+    textEdit2->setText(tr("停靠窗口2,可关闭 可浮动"));
+    // 步骤4
+    dock2->setWidget(textEdit2);
+    // 步骤5
+    this->addDockWidget(Qt::RightDockWidgetArea,dock2);
 
-    splitterMain->setStretchFactor(1,1);
-    splitterMain->setWindowTitle(QObject::tr("Splitter Test"));
-    splitterMain->show();
 
-//    MainWindow w;
-//    w.show();
-    return a.exec();
-}
+    // 停靠窗口3
+    // 步骤1
+    QDockWidget *dock3 = new QDockWidget(tr("停靠窗口3"),this);
+    // 步骤2
+    dock3->setFeatures(QDockWidget::AllDockWidgetFeatures); // 可移动 可关闭 可浮动
+    // 步骤3
+    QTextEdit *textEdit3 = new QTextEdit(this);
+    textEdit3->setText(tr("停靠窗口3,可移动 可关闭 可浮动"));
+    // 步骤4
+    dock3->setWidget(textEdit3);
+    // 步骤5
+    this->addDockWidget(Qt::RightDockWidgetArea,dock3);
 ```
 
 
 
-**`QSplitter::setStretchFactor(int index, int stretch)`**
+**`setFeatures(QDockWidget::DockWidgetFeatures features)`**
+
+设置停靠窗体的特性
+
+`QDockWidget::DockWidgetFeatures `指停靠窗口的特性
 
 ```cpp
-void QSplitter::setStretchFactor(int index, int stretch)
-Updates the size policy of the widget at position index to have a stretch factor of stretch.
-stretch is not the effective stretch factor; the effective stretch factor is calculated by taking the initial size of the widget and multiplying it with stretch.
-This function is provided for convenience. It is equivalent to
- QWidget *widget = splitter->widget(index);
- QSizePolicy policy = widget->sizePolicy();
- policy.setHorizontalStretch(stretch);
- policy.setVerticalStretch(stretch);
- widget->setSizePolicy(policy);
-See also setSizes() and widget().
+    enum DockWidgetFeature {
+        DockWidgetClosable    = 0x01,
+        DockWidgetMovable     = 0x02,
+        DockWidgetFloatable   = 0x04,
+        DockWidgetVerticalTitleBar = 0x08,
 
+        DockWidgetFeatureMask = 0x0f,
+        AllDockWidgetFeatures = DockWidgetClosable|DockWidgetMovable|DockWidgetFloatable, // ### Qt 6: remove
+        NoDockWidgetFeatures  = 0x00,
+
+        Reserved              = 0xff
+    };
 ```
 
-更新位置索引处的部件的大小策略以具有拉伸因子。参数`stretch`不是有效拉伸系数； 有效拉伸因子是通过取部件的初始大小并将其乘以拉伸来计算的。
+|             特性             |            说明             |
+| :--------------------------: | :-------------------------: |
+|     `DockWidgetClosable`     |       停靠窗体可关闭        |
+|     `DockWidgetMovable`      |       停靠窗体可移动        |
+|    `DockWidgetFloatable`     |       停靠窗体可浮动        |
+| `DockWidgetVerticalTitleBar` |     左侧显示垂直标题栏      |
+|   `DockWidgetFeatureMask`    |            Mask             |
+|   `AllDockWidgetFeatures`    |    可关闭 可移动  可浮动    |
+|    `NoDockWidgetFeatures`    | 不可关闭 不可移动  不可浮动 |
 
-位置索引按插入的先后次序从0起依次编号。在这里`setStretchFactor(1,1);`中第一个1是位置索引表示第二个插入`splitterMain`的·部件也就是`splitterRight`,第二个1表示此控件也就是`splitterMain`可伸缩控件。也就是当整个对话框的宽度发生改变时，左部分的文件编辑框宽度保持不变，右部分的分割窗口宽度随整个对话框大小的改变进行调整。
 
 
+**`setAllowedAreas(Qt::DockWidgetAreas areas)`**
+
+设置停靠窗体可停靠区域
+
+`Qt::DockWidgetAreas`指可停靠区域
+
+```cpp
+    enum DockWidgetArea {
+        LeftDockWidgetArea = 0x1,
+        RightDockWidgetArea = 0x2,
+        TopDockWidgetArea = 0x4,
+        BottomDockWidgetArea = 0x8,
+        DockWidgetArea_Mask = 0xf,
+        AllDockWidgetAreas = DockWidgetArea_Mask,
+        NoDockWidgetArea = 0
+    };
+```
+
+
+
+|          特性          |             说明             |
+| :--------------------: | :--------------------------: |
+|  `LeftDockWidgetArea`  |      可在主窗口左侧停靠      |
+| `RightDockWidgetArea`  |      可在主窗口右侧停靠      |
+|  `TopDockWidgetArea`   |      可在主窗口顶部停靠      |
+| `BottomDockWidgetArea` |      可在主窗口底部停靠      |
+| `DockWidgetArea_Mask`  |             Mask             |
+|  `AllDockWidgetAreas`  | 可在任意部位停靠（上面四个） |
+|   `NoDockWidgetArea`   |       只可停靠在插入出       |
 
 
 
