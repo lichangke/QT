@@ -67,7 +67,7 @@ Qt的布局类使用手写的C++代码设计的，所以很容易理解和使用
 
 - `QGridLayout` :在二维网格中布置控件。 控件可以占用多个单元格。
 
-![image-20210719235605869](F:/GitHub/QT/Pictures/QT基础之基本布局QLayout/C_QT基础之基本布局QLayout.png)
+![image-20210719235605869](Pictures/QT基础之基本布局QLayout/C_QT基础之基本布局QLayout.png)
 
 
 
