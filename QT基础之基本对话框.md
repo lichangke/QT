@@ -420,6 +420,259 @@ void InputDlg::changeScore()
 
 
 
+### 标准消息对话框(QMessageBox)
+
+演示了常用的消息对话框包括Question消息框、Information消息框、Warning消息框、Critical消息框、About(关于)消息框、About(关于)Qt消息框以及Custom(自定义)消息框。
+
+这里自定义了一个MsgBoxDlg类用于主界面按钮弹框显示，以上消息框放在MsgBoxDlg中。点击不同的修改按钮弹出不同的消息框。
+
+![image-20220512235440314](Pictures/QT基础之基本对话框/F_QT基础之基本对话框.png)
+
+#### 主界面代码简介
+
+**头文件：**
+
+```cpp
+private slots:
+    void showMsgDlg(); // msgBtn
+private:
+    //消息对话框
+    QPushButton *msgBtn;
+    MsgBoxDlg *msgDlg;
+```
+
+**cpp文件：**
+
+```cpp
+void Dialog::showMsgDlg()
+{
+    msgDlg = new MsgBoxDlg(this);
+    msgDlg->show();
+}
+void Dialog::createQMessageDialog()
+{
+    msgBtn = new QPushButton;
+    msgBtn->setText(tr("标准消息对话框实例"));
+
+    mainLayOut->addWidget(msgBtn,3,1);
+    connect(msgBtn,SIGNAL(clicked()),this,SLOT(showMsgDlg()));
+}
+```
+
+#### 自定义MsgBoxDlg
+
+点击不同的按钮弹出不同的消息框
+
+![image-20220513001703651](D:\GitHub\QT\Pictures\QT基础之基本对话框\G_QT基础之基本对话框.png)
+
+**头文件：**
+
+```cpp
+#include <QDialog>
+#include <QGridLayout> // 用于布局设计
+#include <QPushButton>
+#include <QLabel>
+
+class MsgBoxDlg : public QDialog
+{
+    Q_OBJECT
+public:
+    MsgBoxDlg(QWidget *parent = nullptr);
+private slots:
+    void showQuestionMsg(); // questionBtn
+    void showInformationMsg(); // informationBtn
+    void showWarningMsg(); // warningBtn
+    void showCriticalMsg(); // criticalBtn
+    void showAboutMsg(); // aboutBtn
+    void showAboutQtMsg(); // aboutQtBtn
+private:
+    QGridLayout *mainLayout;
+    QLabel *label; // 显示选择了什么消息框
+    QPushButton *questionBtn;
+    QPushButton *informationBtn;
+    QPushButton *warningBtn;
+    QPushButton *criticalBtn;
+    QPushButton *aboutBtn;
+    QPushButton *aboutQtBtn;
+};
+```
+
+**cpp文件**
+
+```cpp
+MsgBoxDlg::MsgBoxDlg(QWidget *parent)
+    :QDialog(parent)
+{
+    setWindowTitle(tr("标准消息对话框实例"));
+    label = new QLabel;
+    label->setText(tr("请选择一种消息框"));
+
+    questionBtn = new QPushButton;
+    questionBtn->setText(tr("QuestionMsg"));
+    informationBtn = new QPushButton;
+    informationBtn->setText(tr("InformationMsg"));
+    warningBtn = new QPushButton;
+    warningBtn->setText(tr("WarningMsg"));
+    criticalBtn = new QPushButton;
+    criticalBtn->setText(tr("CriticalMsg"));
+    aboutBtn = new QPushButton;
+    aboutBtn->setText(tr("AboutMsg"));
+    aboutQtBtn = new QPushButton;
+    aboutQtBtn->setText(tr("AboutQtMsg"));
+
+    mainLayout = new QGridLayout(this);
+    mainLayout->addWidget(label,0,0,1,2);
+    mainLayout->addWidget(questionBtn,1,0);
+    mainLayout->addWidget(informationBtn,1,1);
+    mainLayout->addWidget(warningBtn,2,0);
+    mainLayout->addWidget(criticalBtn,2,1);
+    mainLayout->addWidget(aboutBtn,3,0);
+    mainLayout->addWidget(aboutQtBtn,3,1);
+
+    connect(questionBtn,SIGNAL(clicked()),this,SLOT(showQuestionMsg()));
+    connect(informationBtn,SIGNAL(clicked()),this,SLOT(showInformationMsg()));
+    connect(warningBtn,SIGNAL(clicked()),this,SLOT(showWarningMsg()));
+    connect(criticalBtn,SIGNAL(clicked()),this,SLOT(showCriticalMsg()));
+    connect(aboutBtn,SIGNAL(clicked()),this,SLOT(showAboutMsg()));
+    connect(aboutQtBtn,SIGNAL(clicked()),this,SLOT(showAboutQtMsg()));
+}
+
+void MsgBoxDlg::showQuestionMsg()
+{
+    label->setText(tr("Question Message Box"));
+
+    auto ret = QMessageBox::question(this,tr("Question消息框"),
+                tr("Question消息框显示演示"),
+                QMessageBox::Ok|QMessageBox::Cancel,QMessageBox::Ok);
+
+    switch(ret){
+    case QMessageBox::Ok:
+        label->setText(tr("Question Button/OK"));
+        break;
+    case QMessageBox::Cancel:
+        label->setText(tr("Question Button/Cancel"));
+        break;
+    default:
+        break;
+    }
+    return;
+}
+
+void MsgBoxDlg::showInformationMsg()
+{
+    label->setText(tr("Information Message Box"));
+    QMessageBox::information(this,tr("Information消息框"),
+                tr("Information消息框显示演示"));
+    return;
+}
+
+void MsgBoxDlg::showWarningMsg()
+{
+    label->setText(tr("Warning Message Box"));
+
+    auto ret = QMessageBox::warning(this,tr("Warning消息框"),
+                tr("Warning消息框显示演示"),
+                QMessageBox::Save|QMessageBox::Discard|QMessageBox::Cancel,
+                QMessageBox::Save);
+
+    switch(ret){
+    case QMessageBox::Save:
+        label->setText(tr("Warning Button/Save"));
+        break;
+    case QMessageBox::Discard:
+        label->setText(tr("Warning Button/Discard"));
+        break;
+    case QMessageBox::Cancel:
+        label->setText(tr("Warning Button/Cancel"));
+        break;
+    default:
+        break;
+    }
+    return;
+}
+
+void MsgBoxDlg::showCriticalMsg()
+{
+    label->setText(tr("Critical Message Box"));
+    QMessageBox::critical(this,tr("Critical消息框"),
+                tr("Information消息框显示演示"));
+    return;
+}
+
+void MsgBoxDlg::showAboutMsg()
+{
+    label->setText(tr("About Message Box"));
+    QMessageBox::about(this,tr("About消息框"),
+                tr("About消息框显示演示"));
+    return;
+}
+
+void MsgBoxDlg::showAboutQtMsg()
+{
+    label->setText(tr("AboutQt Message Box"));
+    QMessageBox::aboutQt(this,tr("AboutQt消息框"));
+    return;
+}
+```
+
+静态函数 `QMessageBox::question、QMessageBox::information、QMessageBox::warning、QMessageBox::critical、QMessageBox::about、QMessageBox::aboutQt` 的定义可以参看QT的帮助手册
+
+### 自定义消息框
+
+![image-20220513004120613](Pictures/QT基础之基本对话框/H_QT基础之基本对话框.png)
+
+#### 代码简介
+
+**头文件：**
+
+```cpp
+private slots:
+    void showCustomDlg(); // customBtn
+private:
+    // 自定义消息框
+    QPushButton *customBtn;
+    QLabel *label;
+```
+
+**cpp文件：**
+
+```cpp
+void Dialog::showCustomDlg()
+{
+    label->setText(tr("Custom Message Box"));
+    QMessageBox customMsgBox;
+    customMsgBox.setWindowTitle(tr("用户自定义消息框"));
+    QPushButton *yesBtn = customMsgBox.addButton(tr("Yes"),QMessageBox::ActionRole); // 自定义按钮，参数为 按钮显示文字，按钮类型
+    QPushButton *noBtn = customMsgBox.addButton(tr("no"),QMessageBox::ActionRole);
+    QPushButton *cancelBtn = customMsgBox.addButton(QMessageBox::Cancel); // 加入 标准按钮， 按addButton顺序从左到右依次加入
+    customMsgBox.setText(tr("这是一个用户自定义消息框"));
+    // customMsgBox.setIconPixmap(QPixmap("xx.png")); // 自定义图标
+    customMsgBox.exec();
+    auto ret = customMsgBox.clickedButton();
+    if(ret == yesBtn){
+        label->setText(tr("Custom Message Box/Yes"));
+    }
+    if(ret == noBtn){
+        label->setText(tr("Custom Message Box/No"));
+    }
+    if(ret == cancelBtn){
+        label->setText(tr("Custom Message Box/Cancel"));
+    }
+    return;
+}
+void Dialog::createCustomDialog()
+{
+    customBtn = new QPushButton;
+    customBtn->setText(tr("用户自定义消息对话框实例"));
+    label = new QLabel;
+    label->setFrameStyle(QFrame::Panel|QFrame::Sunken);
+
+    mainLayOut->addWidget(customBtn,4,0);
+    mainLayOut->addWidget(label,4,1);
+    connect(customBtn,SIGNAL(clicked()),this,SLOT(showCustomDlg()));
+}
+```
+
 
 
 希望我的文章对于大家有帮助，由于个人能力的局限性，文中可能存在一些问题，欢迎指正、补充！
