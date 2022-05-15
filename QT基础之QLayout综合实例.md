@@ -2,6 +2,9 @@
 
 
 
+更多参见
+[QT基础与实例应用目录](https://blog.csdn.net/leacock1991/article/details/118662440)
+
 ### 代码链接
 
 GitHub链接 ： [LayoutExample](https://github.com/lichangke/QT/tree/main/CodeDemo/CH3/CH305/LayoutExample)
