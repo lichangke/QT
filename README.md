@@ -24,6 +24,7 @@ QT基础与实例应用，基于书籍 QT5开发及实例 第4版
 |[QT基础之停靠窗口QDockWidget类](https://github.com/lichangke/QT/blob/main/QT%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%81%9C%E9%9D%A0%E7%AA%97%E5%8F%A3QDockWidget%E7%B1%BB.md) |
 |[QT基础之堆栈窗体QStackedWidget类](https://github.com/lichangke/QT/blob/main/QT%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%A0%86%E6%A0%88%E7%AA%97%E4%BD%93QStackedWidget%E7%B1%BB.md) |
 |[QT基础之基本布局QLayout](https://github.com/lichangke/QT/blob/main/QT%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%9F%BA%E6%9C%AC%E5%B8%83%E5%B1%80QLayout.md) |
+|[QT基础之QLayout综合实例](https://github.com/lichangke/QT/blob/main/QT%E5%9F%BA%E7%A1%80%E4%B9%8BQLayout%E7%BB%BC%E5%90%88%E5%AE%9E%E4%BE%8B.md) |
 |[QT基础之基本对话框](https://github.com/lichangke/QT/blob/main/QT%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%9F%BA%E6%9C%AC%E5%AF%B9%E8%AF%9D%E6%A1%86.md) |
 
 希望我的文章对于大家有帮助，由于个人能力的局限性，文中可能存在一些问题，欢迎指正、补充！
