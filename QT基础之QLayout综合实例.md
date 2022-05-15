@@ -1,5 +1,11 @@
 [TOC]
 
+
+
+### 代码链接
+
+GitHub链接 ： [LayoutExample](https://github.com/lichangke/QT/tree/main/CodeDemo/CH3/CH305/LayoutExample)
+
 ### 布局介绍
 
 最外层使用一个分割窗体`QSplitter`，其左侧为一个`QListWidget`，右侧是一个`QVBoxLayout`布局，此布局包含一个堆栈窗体`QStackWidget`和一个`QHBoxWidget`用于布局按钮，堆栈窗体包含三个页面。整体布局如下图。
