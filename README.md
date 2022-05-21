@@ -31,6 +31,7 @@ QT基础与实例应用，基于书籍 QT5开发及实例 第4版
 |[QT基础之QPalette类](https://github.com/lichangke/QT/blob/main/QT%E5%9F%BA%E7%A1%80%E4%B9%8BQPalette%E7%B1%BB.md) |
 |[QT基础之QPalette实例电子时钟](https://github.com/lichangke/QT/blob/main/QT%E5%9F%BA%E7%A1%80%E4%B9%8BQPalette%E5%AE%9E%E4%BE%8B%E7%94%B5%E5%AD%90%E6%97%B6%E9%92%9F.md) |
 |[QT基础之可扩展对话框](https://github.com/lichangke/QT/blob/main/QT%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%8F%AF%E6%89%A9%E5%B1%95%E5%AF%B9%E8%AF%9D%E6%A1%86.md) |
+|[QT基础之不规则窗体](https://github.com/lichangke/QT/blob/main/QT%E5%9F%BA%E7%A1%80%E4%B9%8B%E4%B8%8D%E8%A7%84%E5%88%99%E7%AA%97%E4%BD%93.md) |
 
 希望我的文章对于大家有帮助，由于个人能力的局限性，文中可能存在一些问题，欢迎指正、补充！
 
