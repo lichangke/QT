@@ -37,6 +37,7 @@ QT基础与实例应用，基于书籍 QT5开发及实例 第4版
 |主窗口 |
 |[QT基础之主窗口构成](https://github.com/lichangke/QT/blob/main/QT%E5%9F%BA%E7%A1%80%E4%B9%8B%E4%B8%BB%E7%AA%97%E5%8F%A3%E6%9E%84%E6%88%90.md) |
 |QT基础之QMainWindow实例文本编辑器[待续] |
+|[QT基础之位置相关的函数介绍](https://github.com/lichangke/QT/blob/main/QT%E5%9F%BA%E7%A1%80%E4%B9%8B%E4%BD%8D%E7%BD%AE%E7%9B%B8%E5%85%B3%E7%9A%84%E5%87%BD%E6%95%B0%E4%BB%8B%E7%BB%8D.md) |
 
 希望我的文章对于大家有帮助，由于个人能力的局限性，文中可能存在一些问题，欢迎指正、补充！
 
