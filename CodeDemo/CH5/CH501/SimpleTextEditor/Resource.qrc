@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="bold">icon/bold.png</file>
+        <file alias="center">icon/center.png</file>
+        <file alias="color">icon/color.png</file>
+        <file alias="copy">icon/copy.png</file>
+        <file alias="cut">icon/cut.png</file>
+        <file alias="italic">icon/italic.png</file>
+        <file alias="justify">icon/justify.png</file>
+        <file alias="new">icon/new.png</file>
+        <file alias="open">icon/open.png</file>
+        <file alias="paste">icon/paste.png</file>
+        <file alias="printText">icon/printText.png</file>
+        <file alias="redo">icon/redo.png</file>
+        <file alias="right">icon/right.png</file>
+        <file alias="underline">icon/underline.png</file>
+        <file alias="undo">icon/undo.png</file>
+        <file alias="left">icon/left.png</file>
+    </qresource>
+</RCC>
