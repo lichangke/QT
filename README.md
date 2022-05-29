@@ -36,8 +36,11 @@ QT基础与实例应用，基于书籍 QT5开发及实例 第4版
 |[QT基础之不规则窗体](https://github.com/lichangke/QT/blob/main/QT%E5%9F%BA%E7%A1%80%E4%B9%8B%E4%B8%8D%E8%A7%84%E5%88%99%E7%AA%97%E4%BD%93.md) |
 |主窗口 |
 |[QT基础之主窗口构成](https://github.com/lichangke/QT/blob/main/QT%E5%9F%BA%E7%A1%80%E4%B9%8B%E4%B8%BB%E7%AA%97%E5%8F%A3%E6%9E%84%E6%88%90.md) |
-|QT基础之QMainWindow实例文本编辑器[待续] |
+|[QT基础之一文介绍文本编辑与排版包含字体相关设置、段落对齐与排序方式](https://github.com/lichangke/QT/blob/main/QT%E5%9F%BA%E7%A1%80%E4%B9%8B%E4%B8%80%E6%96%87%E4%BB%8B%E7%BB%8D%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E4%B8%8E%E6%8E%92%E7%89%88%E5%8C%85%E5%90%AB%E5%AD%97%E4%BD%93%E7%9B%B8%E5%85%B3%E8%AE%BE%E7%BD%AE%E3%80%81%E6%AE%B5%E8%90%BD%E5%AF%B9%E9%BD%90%E4%B8%8E%E6%8E%92%E5%BA%8F%E6%96%B9%E5%BC%8F.md) |
 |[QT基础之位置相关的函数介绍](https://github.com/lichangke/QT/blob/main/QT%E5%9F%BA%E7%A1%80%E4%B9%8B%E4%BD%8D%E7%BD%AE%E7%9B%B8%E5%85%B3%E7%9A%84%E5%87%BD%E6%95%B0%E4%BB%8B%E7%BB%8D.md) |
+|图形绘制 |
+|QT基础之基础图形的绘制 |
+|QT基础之双缓冲机制 |
 
 希望我的文章对于大家有帮助，由于个人能力的局限性，文中可能存在一些问题，欢迎指正、补充！
 
