@@ -41,6 +41,9 @@ QT基础与实例应用，基于书籍 QT5开发及实例 第4版
 |图形绘制 |
 |[QT基础之一文介绍QPainter绘制基础图形](https://github.com/lichangke/QT/blob/main/QT%E5%9F%BA%E7%A1%80%E4%B9%8B%E4%B8%80%E6%96%87%E4%BB%8B%E7%BB%8DQPainter%E7%BB%98%E5%88%B6%E5%9F%BA%E7%A1%80%E5%9B%BE%E5%BD%A2.md) |
 |[QT基础之双缓冲机制介绍](https://github.com/lichangke/QT/blob/main/QT%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%8F%8C%E7%BC%93%E5%86%B2%E6%9C%BA%E5%88%B6%E4%BB%8B%E7%BB%8D.md) |
+|GraphicsView图形视图框架 |
+|[QT基础之GraphicsView图形视图框架介绍](https://github.com/lichangke/QT/blob/main/QT%E5%9F%BA%E7%A1%80%E4%B9%8BGraphicsView%E5%9B%BE%E5%BD%A2%E8%A7%86%E5%9B%BE%E6%A1%86%E6%9E%B6%E4%BB%8B%E7%BB%8D.md) |
+| |
 
 希望我的文章对于大家有帮助，由于个人能力的局限性，文中可能存在一些问题，欢迎指正、补充！
 
